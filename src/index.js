@@ -38,7 +38,7 @@ app.get('/oxygen-high-alarm-off', (req, res) => {
   res.send(`Gpio ${HIGH_PIN} set high`)
 })
 
-app.get('oxygen-high-alarm-on', (req, res) => {
+app.get('/oxygen-high-alarm-on', (req, res) => {
   console.log(`Turn on the high oxygen alarm`)
   // if (highOxygenGPIO.readSync() === 1) {
   //   highOxygenGPIO.writeSync(0)
@@ -64,7 +64,7 @@ app.get('/oxygen-low-alarm-off', (req, res) => {
   res.send(`Gpio ${LOW_PIN} set high`)
 })
 
-app.get('oxygen-low-alarm-on', (req, res) => {
+app.get('/oxygen-low-alarm-on', (req, res) => {
   console.log(`Turn on the high oxygen alarm`)
   // if (lowOxygenGPIO.readSync() === 1) {
   //   lowOxygenGPIO.writeSync(0)
