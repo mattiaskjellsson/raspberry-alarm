@@ -1,7 +1,7 @@
 
 const express = require('express')
 const Gpio = require('onoff').Gpio
-const { pinValue } = require('./service')
+const pinValue = require('./service').pinValue
 const HIGH_PIN = 17
 const LOW_PIN = 27
 const port = 3000
