@@ -1,7 +1,6 @@
-
 const express = require('express')
 const Gpio = require('onoff').Gpio
-const pinValue = require('./service').pinValue
+
 const HIGH_PIN = 17
 const LOW_PIN = 27
 const port = 3000
@@ -10,6 +9,17 @@ const highOxygenGPIO = new Gpio(HIGH_PIN, 'out')
 const lowOxygenGPIO = new Gpio(LOW_PIN, 'out')
 
 const app = express()
+
+const pinValue = (pin, val) => {
+  if (pin.readSync() !== val) {
+    pin.writeSync(val)
+    console.log(`GPIO ${pin} set to ${val}`)
+  } else {
+    console.log(`GPIO ${pin} already set to ${val}`)
+  }
+  
+  return `GPIO ${pin} set to ${val}`
+}
 
 app.get('/', (req, res) => {
   res.send('Hello world')
