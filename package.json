@@ -1,7 +1,7 @@
 {
   "name": "raspberry-pi-alarm",
   "version": "0.0.1",
-  "description": "Alarm server for Omegalax",
+  "description": "Set a GPIO high or low on a raspberry pi",
   "main": "index.js",
   "author": "Mattias Kjellsson",
   "license": "MIT",
