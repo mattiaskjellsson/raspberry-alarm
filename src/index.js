@@ -14,25 +14,25 @@ const lowOxygenGPIO = new Gpio(LOW_PIN, 'out')
 const app = express()
 app.use(bodyParser.json())
 
-export const highAlarmOn = () => {
+const highAlarmOn = () => {
   console.log(`Turn on the high oxygen alarm`)
   const result = pinValue(highOxygenGPIO, 0)
   return result
 }
 
-export const highAlarmOff = () => {
+const highAlarmOff = () => {
   console.log(`Turn off the high oxygen alarm`)
   const result = pinValue(highOxygenGPIO, 1)
   return result
 }
 
-export const lowAlarmOn = () => {
+const lowAlarmOn = () => {
   console.log(`Turn on the low oxygen alarm`)
   const result = pinValue(lowOxygenGPIO, 0)
   return result
 }
 
-export const lowAlarmOff = () => {
+const lowAlarmOff = () => {
   console.log(`Turn off the high oxygen alarm`)
   const result = pinValue(lowOxygenGPIO, 1)
   return result
