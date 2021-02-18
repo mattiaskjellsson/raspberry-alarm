@@ -62,7 +62,7 @@ app.post('/oxygen-high-alarm-off', (req, res) => {
   }
 })
 
-app.get('/oxygen-low-alarm-off', (req, res) => {
+app.post('/oxygen-low-alarm-off', (req, res) => {
   if (req.body.key === KEY) {
     lowAlarmOff()
     res.send(`Low oxygen alarm off`).status(200)
@@ -71,7 +71,7 @@ app.get('/oxygen-low-alarm-off', (req, res) => {
   }
 })
 
-app.get('/oxygen-high-alarm-on', (req, res) => {
+app.post('/oxygen-high-alarm-on', (req, res) => {
   if (req.body.key === KEY) {
     highAlarmOn()
     res.send(`High oxygen alarm on`).status(200)
@@ -80,7 +80,7 @@ app.get('/oxygen-high-alarm-on', (req, res) => {
   }
 })
 
-app.get('/oxygen-low-alarm-on', (req, res) => {
+app.post('/oxygen-low-alarm-on', (req, res) => {
   if (req.body.key === KEY) {
     lowAlarmOn()
     res.send(`Low oxygen alarm on`).status(200)
