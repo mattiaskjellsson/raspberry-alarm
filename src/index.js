@@ -3,18 +3,51 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const Gpio = require('onoff').Gpio
 
-const { highAlarmOff, highAlarmOn, lowAlarmOn, lowAlarmOff} = require('./service')
-
 const KEY = process.env.ALARM_KEY
-const HIGH_PIN = 17
-const LOW_PIN = 27
-const port = 3000
+const port = process.env.PORT
+const HIGH_PIN = process.env.HIGH_PIN
+const LOW_PIN = process.env.LOW_PIN
 
 const highOxygenGPIO = new Gpio(HIGH_PIN, 'out')
 const lowOxygenGPIO = new Gpio(LOW_PIN, 'out')
 
 const app = express()
 app.use(bodyParser.json())
+
+export const highAlarmOn = () => {
+  console.log(`Turn on the high oxygen alarm`)
+  const result = pinValue(highOxygenGPIO, 0)
+  return result
+}
+
+export const highAlarmOff = () => {
+  console.log(`Turn off the high oxygen alarm`)
+  const result = pinValue(highOxygenGPIO, 1)
+  return result
+}
+
+export const lowAlarmOn = () => {
+  console.log(`Turn on the low oxygen alarm`)
+  const result = pinValue(lowOxygenGPIO, 0)
+  return result
+}
+
+export const lowAlarmOff = () => {
+  console.log(`Turn off the high oxygen alarm`)
+  const result = pinValue(lowOxygenGPIO, 1)
+  return result
+}
+
+const pinValue = (pin, val) => {
+  if (pin.readSync() !== val) {
+    pin.writeSync(val)
+    console.log(`GPIO ${pin} set to ${val}`)
+  } else {
+    console.log(`GPIO ${pin} already set to ${val}`)
+  }
+  
+  return `GPIO ${pin} set to ${val}`
+}
 
 app.get('/', (req, res) => {
   res.send('Hello world')
