@@ -54,6 +54,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/oxygen-high-alarm-off', (req, res) => {
+  console.log(req.body.key)
+  console.log(KEY)
   if (req.body.key === KEY) {
     highAlarmOff()
     res.send(`High oxygen alarm off`).status(200)
@@ -63,6 +65,8 @@ app.post('/oxygen-high-alarm-off', (req, res) => {
 })
 
 app.post('/oxygen-low-alarm-off', (req, res) => {
+  console.log(req.body.key)
+  console.log(KEY)
   if (req.body.key === KEY) {
     lowAlarmOff()
     res.send(`Low oxygen alarm off`).status(200)
@@ -72,6 +76,8 @@ app.post('/oxygen-low-alarm-off', (req, res) => {
 })
 
 app.post('/oxygen-high-alarm-on', (req, res) => {
+  console.log(req.body.key)
+  console.log(KEY)
   if (req.body.key === KEY) {
     highAlarmOn()
     res.send(`High oxygen alarm on`).status(200)
@@ -80,7 +86,9 @@ app.post('/oxygen-high-alarm-on', (req, res) => {
   }
 })
 
-app.post('/oxygen-low-alarm-on', (req, res) => {
+app.postInvalid('/oxygen-low-alarm-on', (req, res) => {
+  console.log(req.body.key)
+  console.log(KEY)
   if (req.body.key === KEY) {
     lowAlarmOn()
     res.send(`Low oxygen alarm on`).status(200)
