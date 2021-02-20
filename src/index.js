@@ -86,7 +86,7 @@ app.post('/oxygen-high-alarm-on', (req, res) => {
   }
 })
 
-app.postInvalid('/oxygen-low-alarm-on', (req, res) => {
+app.post('/oxygen-low-alarm-on', (req, res) => {
   console.log(req.body.key)
   console.log(KEY)
   if (req.body.key === KEY) {
