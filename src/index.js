@@ -12,7 +12,8 @@ const highOxygenGPIO = new Gpio(HIGH_PIN, 'out')
 const lowOxygenGPIO = new Gpio(LOW_PIN, 'out')
 
 const app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const highAlarmOn = () => {
   console.log(`Turn on the high oxygen alarm`)
