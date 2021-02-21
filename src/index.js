@@ -17,26 +17,22 @@ app.use(bodyParser.json());
 
 const highAlarmOn = () => {
   console.log(`Turn on the high oxygen alarm`)
-  const result = pinValue(highOxygenGPIO, 0)
-  return result
+  pinValue(highOxygenGPIO, 0)
 }
 
 const highAlarmOff = () => {
   console.log(`Turn off the high oxygen alarm`)
-  const result = pinValue(highOxygenGPIO, 1)
-  return result
+  pinValue(highOxygenGPIO, 1)
 }
 
 const lowAlarmOn = () => {
   console.log(`Turn on the low oxygen alarm`)
-  const result = pinValue(lowOxygenGPIO, 0)
-  return result
+  pinValue(lowOxygenGPIO, 0)
 }
 
 const lowAlarmOff = () => {
   console.log(`Turn off the low oxygen alarm`)
-  const result = pinValue(lowOxygenGPIO, 1)
-  return result
+  pinValue(lowOxygenGPIO, 1)
 }
 
 const pinValue = (pin, val) => {
