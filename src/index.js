@@ -34,7 +34,7 @@ const lowAlarmOn = () => {
 }
 
 const lowAlarmOff = () => {
-  console.log(`Turn off the high oxygen alarm`)
+  console.log(`Turn off the low oxygen alarm`)
   const result = pinValue(lowOxygenGPIO, 1)
   return result
 }
